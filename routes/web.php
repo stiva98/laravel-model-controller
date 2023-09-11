@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+//Controllers
+use App\Http\Controllers\Guest\PageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [PageController::class, 'index'])->name('home');
 
-Route::get('/contatti', function () {
-    return view('contatti');
-})->name('contatti');
+Route::get('/contatti', [PageController::class, 'contatti'])->name('contatti');
 
-Route::get('/chi_siamo', function () {
-    return view('chi_siamo');
-})->name('chi_siamo');
+Route::get('/chi_siamo', [PageController::class, 'chi_siamo'])->name('chi_siamo');
 
-Route::get('/documentazione', function () {
-    return view('documentazione');
-})->name('documentazione');
+Route::get('/documentazione', [PageController::class, 'documentazione'])->name('documentazione');
